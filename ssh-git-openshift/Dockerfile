@@ -21,6 +21,7 @@ RUN chmod 775 /etc/ssh /home # keep writable for openshift user group (root)
 RUN chmod 660 /etc/ssh/sshd_config
 RUN chmod 664 /etc/passwd /etc/group # to help uid fix
 RUN ln -s /home/git /repos # nicer repo url
+RUN echo "GatewayPorts yes" >> /etc/ssh/sshd_config
 
 EXPOSE 2022
 LABEL Description="sample git server; you need to add your ssh keys after startup; on restart you lose repos by default" Vendor="Red Hat" Version="1.0"
